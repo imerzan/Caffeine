@@ -37,7 +37,9 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkbox_AwayMode = new System.Windows.Forms.CheckBox();
+            this.checkbox_AfkMode = new System.Windows.Forms.CheckBox();
+            this.CheckboxTooltip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,28 +95,44 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Windows will not go to sleep \r\nwhile this program is running.";
             // 
-            // checkbox_AwayMode
+            // checkbox_AfkMode
             // 
-            this.checkbox_AwayMode.AutoSize = true;
-            this.checkbox_AwayMode.Location = new System.Drawing.Point(25, 78);
-            this.checkbox_AwayMode.Name = "checkbox_AwayMode";
-            this.checkbox_AwayMode.Size = new System.Drawing.Size(221, 30);
-            this.checkbox_AwayMode.TabIndex = 2;
-            this.checkbox_AwayMode.Text = "Away Mode\r\n(Simulated Keybd/Mouse Input while idle)";
-            this.checkbox_AwayMode.UseVisualStyleBackColor = true;
-            this.checkbox_AwayMode.CheckedChanged += new System.EventHandler(this.checkbox_AwayMode_CheckedChanged);
+            this.checkbox_AfkMode.AutoSize = true;
+            this.checkbox_AfkMode.Location = new System.Drawing.Point(25, 78);
+            this.checkbox_AfkMode.Name = "checkbox_AfkMode";
+            this.checkbox_AfkMode.Size = new System.Drawing.Size(112, 17);
+            this.checkbox_AfkMode.TabIndex = 2;
+            this.checkbox_AfkMode.Text = "Toggle AFK Mode";
+            this.checkbox_AfkMode.UseVisualStyleBackColor = true;
+            this.checkbox_AfkMode.CheckedChanged += new System.EventHandler(this.checkbox_AwayMode_CheckedChanged);
             // 
-            // Form1
+            // CheckboxTooltip1
+            // 
+            this.CheckboxTooltip1.ShowAlways = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(12, 136);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(144, 13);
+            this.linkLabel1.TabIndex = 3;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "github.com/imerzan/Caffeine";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // Caffeine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 158);
-            this.Controls.Add(this.checkbox_AwayMode);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.checkbox_AfkMode);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Caffeine";
             this.Text = "Caffeine";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -129,8 +147,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkbox_AwayMode;
+        private System.Windows.Forms.CheckBox checkbox_AfkMode;
         private System.Windows.Forms.ToolStripMenuItem awayModeToolStripMenuItem;
+        private System.Windows.Forms.ToolTip CheckboxTooltip1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

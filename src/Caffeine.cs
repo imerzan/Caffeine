@@ -5,24 +5,25 @@ namespace Caffeine
 {
     public partial class Caffeine : Form
     {
-        private AwayMode Worker { get; set; }
+        private AfkMode afkMode;
         public Caffeine() // GUI Constructor
         {
             InitializeComponent();
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1; // Set Tray Icon
             this.Resize += Window_Resize; // Minimize Event Handler
-            WinAPI.PreventSleep();  // Prevent Windows from going to sleep while the main thread is active
+            this.CheckboxTooltip1.SetToolTip(checkbox_AfkMode, "Simulated Keypress(a-z)/MouseMove Input every 55 - 65 sec while idle.\nDoes nothing if system is being actively used."); // Set tooltip
+            Win32API.PreventSleep();  // Prevent Windows from going to sleep while the main thread is active
         }
-        private void checkbox_AwayMode_CheckedChanged(object sender, EventArgs e) // Toggle Away Mode
+        private void checkbox_AwayMode_CheckedChanged(object sender, EventArgs e) // Toggle AFK Mode
         {
-            if (this.checkbox_AwayMode.Checked) // Away Mode Enabled
+            if (this.checkbox_AfkMode.Checked) // AFK Mode Enabled
             {
-                this.Worker = new AwayMode();
+                this.afkMode = new AfkMode();
                 this.awayModeToolStripMenuItem.Checked = true;
             }
-            else // Away Mode Disabled
+            else // AFK Mode Disabled
             {
-                Worker?.Disable();
+                this.afkMode?.Disable();
                 this.awayModeToolStripMenuItem.Checked = false;
             }
         }
@@ -41,9 +42,9 @@ namespace Caffeine
         {
             this.GuiShow(true);
         }
-        private void awayModeToolStripMenuItem_Click(object sender, EventArgs e) // Away Mode Menu Item, Toggle Away Mode
+        private void awayModeToolStripMenuItem_Click(object sender, EventArgs e) // AFK Mode Menu Item, Toggle Away Mode
         {
-            this.checkbox_AwayMode.Checked = !this.checkbox_AwayMode.Checked; // Invokes checkbox_AwayMode_CheckedChanged()
+            this.checkbox_AfkMode.Checked = !this.checkbox_AfkMode.Checked; // Invokes checkbox_AwayMode_CheckedChanged()
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) // Exit Menu Item
@@ -65,6 +66,10 @@ namespace Caffeine
                 this.Hide();
                 this.notifyIcon1.Visible = true;
             }
+        }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/imerzan/Caffeine"); // Navigate to page when clicked
         }
     }
 }

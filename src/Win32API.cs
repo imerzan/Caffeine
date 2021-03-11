@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Caffeine
 {
-    internal static class WinAPI
+    internal static class Win32API
     {
         // Constants
         private const uint ES_CONTINUOUS = 0x80000000;
@@ -27,7 +27,7 @@ namespace Caffeine
         [DllImport("user32.dll")]
         private static extern int GetSystemMetrics(SystemMetric smIndex);
 
-        // Private Methods
+        // Private Wrapper Methods
         private static int CalculateAbsoluteCoordinateX(int x)
         {
             return (x * 65536) / GetSystemMetrics(SystemMetric.SM_CXSCREEN);
@@ -38,7 +38,7 @@ namespace Caffeine
             return (y * 65536) / GetSystemMetrics(SystemMetric.SM_CYSCREEN);
         }
 
-        // Public Methods
+        // Public Wrapper Methods
         public static void PreventSleep()
         {
             SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED); // Prevent system sleep

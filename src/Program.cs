@@ -16,7 +16,11 @@ namespace Caffeine
         {
             bool createdNew;
             mutex = new Mutex(true, "eb06a900-686a-45a0-b2ee-30b8a8a0981a", out createdNew); // Allow only one instance to run
-            if (!createdNew) return;
+            if (!createdNew)
+            {
+                MessageBox.Show("Caffeine is already running!", WindowTitle, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             else
             {
                 Application.EnableVisualStyles();
