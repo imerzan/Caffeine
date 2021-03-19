@@ -31,7 +31,9 @@ namespace Caffeine
             uint idletime = (Win32API.GetTickCount() - this.LastInput.dwTime); // Check to see if user is idle
             if (idletime > this.DelayTimer.Interval) // User is idle, proceed with simulating keyboard/mouse input
             {
-                Win32API.SendKey((byte)this.Rng.Next(65, 90)); // Key Press, use A-Z randomly, converts integer vkey value to byte
+                Array vkeys = typeof(VirtualKey).GetEnumValues(); // Get possible enumeration values
+                VirtualKey key = (VirtualKey)vkeys.GetValue(Rng.Next(0, vkeys.Length)); // Pick random key
+                Win32API.SendKey(key); // Send Key Press with randomly selected key
                 Win32API.SetCursorPos(this.Rng.Next(0, this.ScreenBounds.Width), this.Rng.Next(0, this.ScreenBounds.Height)); // Move mouse to random area of primary screen
                 await Task.Delay(500); // 500 ms delay before resetting timer
             }
