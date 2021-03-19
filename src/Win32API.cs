@@ -43,7 +43,7 @@ namespace Caffeine
         {
             SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED); // Prevent system sleep
         }
-        public static void SendKey(byte key)
+        public static void SendKey(VirtualKey key)
         {
             INPUT[] input = new INPUT[1];
             input[0].type = INPUT_KEYBOARD;
@@ -96,8 +96,8 @@ namespace Caffeine
     [StructLayout(LayoutKind.Sequential)]
     internal struct KEYBDINPUT
     {
-        public short wVk;
-        public ScanCodeShort wScan;
+        public VirtualKey wVk;
+        public short wScan;
         public uint dwFlags;
         public uint time;
         public UIntPtr dwExtraInfo;
@@ -114,33 +114,33 @@ namespace Caffeine
         SM_CXSCREEN = 0,
         SM_CYSCREEN = 1,
     }
-    public enum ScanCodeShort : short
+    public enum VirtualKey : short // https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
     {
-        KEY_A = 30,
-        KEY_B = 48,
-        KEY_C = 46,
-        KEY_D = 32,
-        KEY_E = 18,
-        KEY_F = 33,
-        KEY_G = 34,
-        KEY_H = 35,
-        KEY_I = 23,
-        KEY_J = 36,
-        KEY_K = 37,
-        KEY_L = 38,
-        KEY_M = 50,
-        KEY_N = 49,
-        KEY_O = 24,
-        KEY_P = 25,
-        KEY_Q = 16,
-        KEY_R = 19,
-        KEY_S = 31,
-        KEY_T = 20,
-        KEY_U = 22,
-        KEY_V = 47,
-        KEY_W = 17,
-        KEY_X = 45,
-        KEY_Y = 21,
-        KEY_Z = 44,
+        VK_A = 0x41,
+        VK_B = 0x42,
+        VK_C = 0x43,
+        VK_D = 0x44,
+        VK_E = 0x45,
+        VK_F = 0x46,
+        VK_G = 0x47,
+        VK_H = 0x48,
+        VK_I = 0x49,
+        VK_J = 0x4A,
+        VK_K = 0x4B,
+        VK_L = 0x4C,
+        VK_M = 0x4D,
+        VK_N = 0x4E,
+        VK_O = 0x4F,
+        VK_P = 0x50,
+        VK_Q = 0x51,
+        VK_R = 0x52,
+        VK_S = 0x53,
+        VK_T = 0x54,
+        VK_U = 0x55,
+        VK_V = 0x56,
+        VK_W = 0x57,
+        VK_X = 0x58,
+        VK_Y = 0x59,
+        VK_Z = 0x5A,
     }
 }

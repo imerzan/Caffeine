@@ -33,7 +33,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.awayModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,35 +53,35 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
-            this.awayModeToolStripMenuItem,
+            this.afkModeToolStripMenuItem,
             this.toolStripMenuItem2,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 76);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
-            // awayModeToolStripMenuItem
+            // afkModeToolStripMenuItem
             // 
-            this.awayModeToolStripMenuItem.Name = "awayModeToolStripMenuItem";
-            this.awayModeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.awayModeToolStripMenuItem.Text = "Away Mode";
-            this.awayModeToolStripMenuItem.Click += new System.EventHandler(this.awayModeToolStripMenuItem_Click);
+            this.afkModeToolStripMenuItem.Name = "afkModeToolStripMenuItem";
+            this.afkModeToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.afkModeToolStripMenuItem.Text = "AFK Mode";
+            this.afkModeToolStripMenuItem.Click += new System.EventHandler(this.afkModeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(134, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -108,6 +108,9 @@
             // 
             // CheckboxTooltip1
             // 
+            this.CheckboxTooltip1.AutoPopDelay = 10000;
+            this.CheckboxTooltip1.InitialDelay = 500;
+            this.CheckboxTooltip1.ReshowDelay = 100;
             this.CheckboxTooltip1.ShowAlways = true;
             // 
             // linkLabel1
@@ -148,7 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkbox_AfkMode;
-        private System.Windows.Forms.ToolStripMenuItem awayModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem afkModeToolStripMenuItem;
         private System.Windows.Forms.ToolTip CheckboxTooltip1;
         private System.Windows.Forms.LinkLabel linkLabel1;
     }

@@ -11,7 +11,7 @@ namespace Caffeine
             InitializeComponent();
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1; // Set Tray Icon
             this.Resize += Window_Resize; // Minimize Event Handler
-            this.CheckboxTooltip1.SetToolTip(checkbox_AfkMode, "Simulated Keypress(a-z)/MouseMove Input every 55 - 65 sec while idle.\nDoes nothing if system is being actively used."); // Set tooltip
+            this.CheckboxTooltip1.SetToolTip(checkbox_AfkMode, "Enabling afk mode will start a repeating timer for 55-65 seconds (random).\nIf no input is received during this period of time, Caffeine will simulate a single random keypress (A-Z),\nand move the mouse cursor to a random area on the primary monitor."); // Set tooltip
             Win32API.PreventSleep();  // Prevent Windows from going to sleep while the main thread is active
         }
         private void checkbox_AwayMode_CheckedChanged(object sender, EventArgs e) // Toggle AFK Mode
@@ -19,12 +19,12 @@ namespace Caffeine
             if (this.checkbox_AfkMode.Checked) // AFK Mode Enabled
             {
                 this.afkMode = new AfkMode();
-                this.awayModeToolStripMenuItem.Checked = true;
+                this.afkModeToolStripMenuItem.Checked = true;
             }
             else // AFK Mode Disabled
             {
                 this.afkMode?.Disable();
-                this.awayModeToolStripMenuItem.Checked = false;
+                this.afkModeToolStripMenuItem.Checked = false;
             }
         }
 
@@ -42,7 +42,7 @@ namespace Caffeine
         {
             this.GuiShow(true);
         }
-        private void awayModeToolStripMenuItem_Click(object sender, EventArgs e) // AFK Mode Menu Item, Toggle Away Mode
+        private void afkModeToolStripMenuItem_Click(object sender, EventArgs e) // AFK Mode Menu Item, Toggle Away Mode
         {
             this.checkbox_AfkMode.Checked = !this.checkbox_AfkMode.Checked; // Invokes checkbox_AwayMode_CheckedChanged()
         }
