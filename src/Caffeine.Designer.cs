@@ -39,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkbox_AfkMode = new System.Windows.Forms.CheckBox();
             this.CheckboxTooltip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_About = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,7 +104,7 @@
             this.checkbox_AfkMode.TabIndex = 2;
             this.checkbox_AfkMode.Text = "Toggle AFK Mode";
             this.checkbox_AfkMode.UseVisualStyleBackColor = true;
-            this.checkbox_AfkMode.CheckedChanged += new System.EventHandler(this.checkbox_AwayMode_CheckedChanged);
+            this.checkbox_AfkMode.CheckedChanged += new System.EventHandler(this.checkbox_AfkMode_CheckedChanged);
             // 
             // CheckboxTooltip1
             // 
@@ -113,23 +113,23 @@
             this.CheckboxTooltip1.ReshowDelay = 100;
             this.CheckboxTooltip1.ShowAlways = true;
             // 
-            // linkLabel1
+            // linkLabel_About
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 136);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(144, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "github.com/imerzan/Caffeine";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel_About.AutoSize = true;
+            this.linkLabel_About.Location = new System.Drawing.Point(12, 136);
+            this.linkLabel_About.Name = "linkLabel_About";
+            this.linkLabel_About.Size = new System.Drawing.Size(144, 13);
+            this.linkLabel_About.TabIndex = 3;
+            this.linkLabel_About.TabStop = true;
+            this.linkLabel_About.Text = "github.com/imerzan/Caffeine";
+            this.linkLabel_About.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_About_LinkClicked);
             // 
             // Caffeine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 158);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabel_About);
             this.Controls.Add(this.checkbox_AfkMode);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -153,7 +153,7 @@
         private System.Windows.Forms.CheckBox checkbox_AfkMode;
         private System.Windows.Forms.ToolStripMenuItem afkModeToolStripMenuItem;
         private System.Windows.Forms.ToolTip CheckboxTooltip1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel_About;
     }
 }
 

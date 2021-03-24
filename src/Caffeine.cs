@@ -11,10 +11,10 @@ namespace Caffeine
             InitializeComponent();
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1; // Set Tray Icon
             this.Resize += Window_Resize; // Minimize Event Handler
-            this.CheckboxTooltip1.SetToolTip(checkbox_AfkMode, "Enabling afk mode will start a repeating timer for 55-65 seconds (random).\nIf no input is received during this period of time, Caffeine will simulate a single random keypress (A-Z),\nand move the mouse cursor to a random area on the primary monitor."); // Set tooltip
+            this.CheckboxTooltip1.SetToolTip(checkbox_AfkMode, "Enabling afk mode will start a repeating timer for 45-65 seconds (random).\nIf no input is received during this period of time, Caffeine will simulate a single random keypress (A-Z, 0-9),\nand move the mouse cursor to a random area on the primary monitor."); // Set tooltip
             Win32API.PreventSleep();  // Prevent Windows from going to sleep while the main thread is active
         }
-        private void checkbox_AwayMode_CheckedChanged(object sender, EventArgs e) // Toggle AFK Mode
+        private void checkbox_AfkMode_CheckedChanged(object sender, EventArgs e) // Toggle AFK Mode
         {
             if (this.checkbox_AfkMode.Checked) // AFK Mode Enabled
             {
@@ -67,7 +67,7 @@ namespace Caffeine
                 this.notifyIcon1.Visible = true;
             }
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabel_About_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/imerzan/Caffeine"); // Navigate to page when clicked
         }
