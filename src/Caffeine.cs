@@ -23,7 +23,7 @@ namespace Caffeine
             }
             else // AFK Mode Disabled
             {
-                this.afkMode?.Disable();
+                this.afkMode.Enabled = false;
                 this.afkModeToolStripMenuItem.Checked = false;
             }
         }
