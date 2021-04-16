@@ -8,6 +8,7 @@ namespace Caffeine
         // Constants
         private const uint ES_CONTINUOUS = 0x80000000;
         private const uint ES_SYSTEM_REQUIRED = 0x00000001;
+        private const uint ES_DISPLAY_REQUIRED = 0x00000002;
         private const uint KEYEVENTF_SCANCODE = 0x0008;
         private const uint MOUSEEVENTF_ABSOLUTE = 0x8000;
         private const uint MOUSEEVENTF_MOVE = 0x0001;
@@ -39,9 +40,16 @@ namespace Caffeine
         }
 
         // Public Wrapper Methods
-        public static void PreventSleep()
+        public static void PreventSleep(bool keepDisplayAwake = false)
         {
-            SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED); // Prevent system sleep
+            if (keepDisplayAwake)
+            {
+                SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED); // Prevent Windows & Display Sleep
+            }
+            else
+            {
+                SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED); // Prevent Windows Sleep, Allow Display Sleep
+            }
         }
         public static void SendKey(VirtualKey key)
         {

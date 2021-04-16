@@ -40,6 +40,9 @@
             this.checkbox_AfkMode = new System.Windows.Forms.CheckBox();
             this.CheckboxTooltip1 = new System.Windows.Forms.ToolTip(this.components);
             this.linkLabel_About = new System.Windows.Forms.LinkLabel();
+            this.checkBox_KeepDisplayAwake = new System.Windows.Forms.CheckBox();
+            this.keepDisplayAwakeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CheckboxTooltip2 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,35 +56,36 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
+            this.keepDisplayAwakeToolStripMenuItem,
             this.afkModeToolStripMenuItem,
             this.toolStripMenuItem2,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(180, 98);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // afkModeToolStripMenuItem
             // 
             this.afkModeToolStripMenuItem.Name = "afkModeToolStripMenuItem";
-            this.afkModeToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.afkModeToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.afkModeToolStripMenuItem.Text = "AFK Mode";
             this.afkModeToolStripMenuItem.Click += new System.EventHandler(this.afkModeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(176, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -98,7 +102,7 @@
             // checkbox_AfkMode
             // 
             this.checkbox_AfkMode.AutoSize = true;
-            this.checkbox_AfkMode.Location = new System.Drawing.Point(25, 78);
+            this.checkbox_AfkMode.Location = new System.Drawing.Point(25, 95);
             this.checkbox_AfkMode.Name = "checkbox_AfkMode";
             this.checkbox_AfkMode.Size = new System.Drawing.Size(112, 17);
             this.checkbox_AfkMode.TabIndex = 2;
@@ -124,11 +128,37 @@
             this.linkLabel_About.Text = "github.com/imerzan/Caffeine";
             this.linkLabel_About.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_About_LinkClicked);
             // 
+            // checkBox_KeepDisplayAwake
+            // 
+            this.checkBox_KeepDisplayAwake.AutoSize = true;
+            this.checkBox_KeepDisplayAwake.Location = new System.Drawing.Point(25, 72);
+            this.checkBox_KeepDisplayAwake.Name = "checkBox_KeepDisplayAwake";
+            this.checkBox_KeepDisplayAwake.Size = new System.Drawing.Size(124, 17);
+            this.checkBox_KeepDisplayAwake.TabIndex = 4;
+            this.checkBox_KeepDisplayAwake.Text = "Keep Display Awake";
+            this.checkBox_KeepDisplayAwake.UseVisualStyleBackColor = true;
+            this.checkBox_KeepDisplayAwake.CheckedChanged += new System.EventHandler(this.checkBox_KeepDisplayAwake_CheckedChanged);
+            // 
+            // keepDisplayAwakeToolStripMenuItem
+            // 
+            this.keepDisplayAwakeToolStripMenuItem.Name = "keepDisplayAwakeToolStripMenuItem";
+            this.keepDisplayAwakeToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.keepDisplayAwakeToolStripMenuItem.Text = "Keep Display Awake";
+            this.keepDisplayAwakeToolStripMenuItem.Click += new System.EventHandler(this.keepDisplayAwakeToolStripMenuItem_Click);
+            // 
+            // CheckboxTooltip2
+            // 
+            this.CheckboxTooltip2.AutoPopDelay = 10000;
+            this.CheckboxTooltip2.InitialDelay = 500;
+            this.CheckboxTooltip2.ReshowDelay = 100;
+            this.CheckboxTooltip2.ShowAlways = true;
+            // 
             // Caffeine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 158);
+            this.Controls.Add(this.checkBox_KeepDisplayAwake);
             this.Controls.Add(this.linkLabel_About);
             this.Controls.Add(this.checkbox_AfkMode);
             this.Controls.Add(this.label1);
@@ -154,6 +184,9 @@
         private System.Windows.Forms.ToolStripMenuItem afkModeToolStripMenuItem;
         private System.Windows.Forms.ToolTip CheckboxTooltip1;
         private System.Windows.Forms.LinkLabel linkLabel_About;
+        private System.Windows.Forms.CheckBox checkBox_KeepDisplayAwake;
+        private System.Windows.Forms.ToolStripMenuItem keepDisplayAwakeToolStripMenuItem;
+        private System.Windows.Forms.ToolTip CheckboxTooltip2;
     }
 }
 

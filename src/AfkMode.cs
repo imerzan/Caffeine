@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Timers;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Caffeine
 {

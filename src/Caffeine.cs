@@ -12,19 +12,32 @@ namespace Caffeine
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1; // Set Tray Icon
             this.Resize += Window_Resize; // Minimize Event Handler
             this.CheckboxTooltip1.SetToolTip(checkbox_AfkMode, "Enabling afk mode will start a repeating timer for 45-65 seconds (random).\nIf no input is received during this period of time, Caffeine will simulate a single random keypress (A-Z, 0-9),\nand move the mouse cursor to a random area on the primary monitor."); // Set tooltip
-            Win32API.PreventSleep();  // Prevent Windows from going to sleep while the main thread is active
+            this.CheckboxTooltip2.SetToolTip(checkBox_KeepDisplayAwake, "This will prevent the display/monitor from going to sleep/energy save mode.");
+            Win32API.PreventSleep(); // Prevent Windows from going to sleep while the main thread is active
+        }
+
+        private void checkBox_KeepDisplayAwake_CheckedChanged(object sender, EventArgs e)
+        {
+            this.keepDisplayAwakeToolStripMenuItem.Checked = this.checkBox_KeepDisplayAwake.Checked; // Set Tooltip Item State
+            if (this.checkBox_KeepDisplayAwake.Checked)
+            {
+                Win32API.PreventSleep(true); // Prevent Display & Windows Sleep
+            }
+            else
+            {
+                Win32API.PreventSleep(); // Prevent Windows Sleep
+            }
         }
         private void checkbox_AfkMode_CheckedChanged(object sender, EventArgs e) // Toggle AFK Mode
         {
-            if (this.checkbox_AfkMode.Checked) // AFK Mode Enabled
+            this.afkModeToolStripMenuItem.Checked = this.checkbox_AfkMode.Checked; // Set Tooltip Item State
+            if (this.checkbox_AfkMode.Checked)
             {
-                this.afkMode = new AfkMode();
-                this.afkModeToolStripMenuItem.Checked = true;
+                this.afkMode = new AfkMode(); // Enable AFK MODE
             }
-            else // AFK Mode Disabled
+            else
             {
-                this.afkMode.Enabled = false;
-                this.afkModeToolStripMenuItem.Checked = false;
+                this.afkMode.Enabled = false; // Disable AFK MODE
             }
         }
 
@@ -41,6 +54,10 @@ namespace Caffeine
         private void openToolStripMenuItem_Click(object sender, EventArgs e) // Open Menu Item, Show GUI
         {
             this.GuiShow(true);
+        }
+        private void keepDisplayAwakeToolStripMenuItem_Click(object sender, EventArgs e) // Keep Display Awake Menu Item, Toggle
+        {
+            this.checkBox_KeepDisplayAwake.Checked = !this.checkBox_KeepDisplayAwake.Checked; // Invokes checkBox_KeepDisplayAwake_CheckedChanged()
         }
         private void afkModeToolStripMenuItem_Click(object sender, EventArgs e) // AFK Mode Menu Item, Toggle Away Mode
         {
@@ -71,5 +88,6 @@ namespace Caffeine
         {
             System.Diagnostics.Process.Start("https://github.com/imerzan/Caffeine"); // Navigate to page when clicked
         }
+
     }
 }
